@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js'></script>
+    <script>
+        var socket = io();
+
+        socket.on('connect', function() {
+            setInterval(function() {
+                socket.emit('sup_subscribe', 'iitr_notify_position_json', '%username');
+            }, 3000);
+        });
+        socket.on('error', console.error.bind(console));
+        socket.on('message', console.log.bind(console));
+
+        function addMessage(message) {
+            var text = document.createTextNode(message),
+                el = document.createElement('li'),
+                messages = document.getElementById('messages');
+
+            el.appendChild(text);
+            messages.appendChild(el);
+        }
+    </script>
+</head>
+<body>
+<ul id='messages'></ul>
+</body>
+</html>

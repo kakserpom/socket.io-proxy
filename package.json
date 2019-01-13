@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "socket.io": "^2.2.0",
+    "socket.io-events": "^0.4.6",
+    "websocket": "^1.0.28"
+  }
+}
